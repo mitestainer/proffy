@@ -24,9 +24,10 @@
     #search-teachers {
         display: grid;
         grid-template-columns: 3fr 3fr 2fr 1fr;
-        column-gap: 16px;
+        column-gap: 1.6rem;
         position: absolute;
         bottom: -28px;
+        width: 100%;
     }
 
     #search-teachers .input-block + .input-block, #search-teachers .select-block + .select-block {

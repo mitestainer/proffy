@@ -16,7 +16,13 @@ export default class {
         const time = filters.time as string
         const weekday = filters.weekday as string
 
-        if (!filters.subject || !filters.weekday || !filters.time) return res.status(400).json({"error": "Missing filters to search classes"})
+        if (!filters.subject || !filters.weekday || !filters.time) {
+            // return res.status(400).json({"error": "Missing filters to search classes"})
+            const classesList = await db('users')
+                .select('*')
+                // .join('classes', )
+            return res.status(200).json(classesList)
+        }
 
         const timeInMinutes = convertHoursToMinutes(time)
 
@@ -65,11 +71,43 @@ export default class {
             
             return res.status(201).send()
         } catch (error) {
+            await trx.rollback()
+    
+            return res.status(400).json({
+                "error": "Unexpected error while creating new class"
+            })
+        }
+    }
+
+    async delete (req: Request, res: Response) {
+        const {id} = req.params
+        const trx = await db.transaction()
+    
+        try {
+            await trx('users').where('id', id).del()
+            await trx('classes').where('user_id', id).del()
+            await trx('classes_schedule').where('class_id', id).del()
+
+            await trx.commit()
+            
+            return res.status(200).send('User deleted')
+        } catch (error) {
             trx.rollback()
     
             return res.status(400).json({
                 "error": "Unexpected error while creating new class"
             })
         }
+    }
+
+    async update(req: Request, res: Response) {
+        const {id} = req.params
+        const trx = await db.transaction()
+        await trx('classes').where('user_id', id).update({
+            subject: req.body.subject,
+          })
+          await trx.commit()
+            
+          return res.status(200).send('User updated')
     }
 }

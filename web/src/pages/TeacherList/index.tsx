@@ -1,11 +1,14 @@
-import React, {useState, FormEvent} from 'react'
+import React, {useState, useEffect, FormEvent} from 'react'
 
 import PageHeader from '../../components/PageHeader'
 import TeacherItem, {Teacher} from '../../components/TeacherItem'
 import Input from '../../components/Input'
 import Select from '../../components/Select'
+import Button from '../../components/Button'
 
 import api from '../../services/api'
+
+import magnifierIcon from '../../assets/images/icons/magnifier.svg'
 
 import './styles.css'
 
@@ -20,7 +23,10 @@ export default () => {
         e.preventDefault()
         const res = await api.get('classes', { params: {subject, weekday, time} })
         setTeachers(res.data)
+        console.log(res.data)
     }
+
+    useEffect(() => { api.get('classes').then(res => setTeachers(res.data)) }, [])
 
     return (
         <div id="page-teacher-list" className="container">
@@ -32,19 +38,19 @@ export default () => {
                         value={subject}
                         onChange={e => setSubject(e.target.value)}
                         options={[
-                            { value: 'artes', label: 'Artes' },
-                            { value: 'biologia', label: 'Biologia' },
-                            { value: 'ciencias', label: 'Ciências' },
-                            { value: 'espanhol', label: 'Espanhol' },
-                            { value: 'fisica', label: 'Física' },
-                            { value: 'geografia', label: 'Geografia' },
-                            { value: 'historia', label: 'História' },
-                            { value: 'ingles', label: 'Inglês' },
-                            { value: 'literatura', label: 'Literatura' },
-                            { value: 'mathematica', label: 'Matemática' },
-                            { value: 'portugues', label: 'Português' },
-                            { value: 'quimica', label: 'Química' },
-                            { value: 'redacao', label: 'Redação' }
+                            { value: 'Artes', label: 'Artes' },
+                            { value: 'Biologia', label: 'Biologia' },
+                            { value: 'Ciências', label: 'Ciências' },
+                            { value: 'Espanhol', label: 'Espanhol' },
+                            { value: 'Física', label: 'Física' },
+                            { value: 'Geografia', label: 'Geografia' },
+                            { value: 'História', label: 'História' },
+                            { value: 'Inglês', label: 'Inglês' },
+                            { value: 'Literatura', label: 'Literatura' },
+                            { value: 'Matemática', label: 'Matemática' },
+                            { value: 'Português', label: 'Português' },
+                            { value: 'Química', label: 'Química' },
+                            { value: 'Redação', label: 'Redação' }
                         ]} 
                     />
                     <Select 
@@ -63,7 +69,7 @@ export default () => {
                         ]} 
                     />
                     <Input type="time" name="time" label="Hora" value={time} onChange={e => setTime(e.target.value)} />
-                    <button type="submit" id="search-teacher-button">!!</button>
+                    <Button image={magnifierIcon} text="Buscar" />
                 </form>
             </PageHeader>
 

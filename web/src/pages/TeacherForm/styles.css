@@ -30,15 +30,18 @@
     font: 700 2.4rem 'Archivo', sans-serif;
     color: var(--color-text-title);
     margin-bottom: 2.4rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     width: 100%;
     padding-bottom: 1.6rem;
     border-bottom: 1px solid var(--color-line-in-white);
 }
 
-#page-teacher-form main fieldset legend button {
+#page-teacher-form main fieldset legend div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#page-teacher-form main fieldset legend div button {
     background: none;
     border: 0;
     color: var(--color-primary);
@@ -78,27 +81,6 @@
 
 #page-teacher-form main footer p img {
     margin-right: 2rem;
-}
-
-#page-teacher-form main footer button {
-    width: 100%;
-    height: 5.6rem;
-    background-color: var(--color-secondary);
-    color: var(--color-button-text);
-    border: 0;
-    border-radius: 0.8rem;
-    cursor: pointer;
-    font: 700 1.6rem 'Archivo', sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    transition: background-color .2s;
-    margin-top: 3.2rem;
-}
-
-#page-teacher-form main footer button:hover {
-    background-color: var(--color-secondary-dark);
 }
 
 @media (min-width: 700px) {

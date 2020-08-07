@@ -5,6 +5,7 @@ import PageHeader from '../../components/PageHeader'
 import Input from '../../components/Input'
 import Textarea from '../../components/Textarea'
 import Select from '../../components/Select'
+import Button from '../../components/Button'
 
 import warningIcon from '../../assets/images/icons/warning.svg'
 
@@ -71,27 +72,29 @@ export default () => {
                             value={subject}
                             onChange={e => setSubject(e.target.value)}
                             options={[
-                                { value: 'artes', label: 'Artes' },
-                                { value: 'biologia', label: 'Biologia' },
-                                { value: 'ciencias', label: 'Ciências' },
-                                { value: 'espanhol', label: 'Espanhol' },
-                                { value: 'fisica', label: 'Física' },
-                                { value: 'geografia', label: 'Geografia' },
-                                { value: 'historia', label: 'História' },
-                                { value: 'ingles', label: 'Inglês' },
-                                { value: 'literatura', label: 'Literatura' },
-                                { value: 'mathematica', label: 'Matemática' },
-                                { value: 'portugues', label: 'Português' },
-                                { value: 'quimica', label: 'Química' },
-                                { value: 'redacao', label: 'Redação' }
+                                { value: 'Artes', label: 'Artes' },
+                                { value: 'Biologia', label: 'Biologia' },
+                                { value: 'Ciências', label: 'Ciências' },
+                                { value: 'Espanhol', label: 'Espanhol' },
+                                { value: 'Física', label: 'Física' },
+                                { value: 'Geografia', label: 'Geografia' },
+                                { value: 'História', label: 'História' },
+                                { value: 'Inglês', label: 'Inglês' },
+                                { value: 'Literatura', label: 'Literatura' },
+                                { value: 'Matemática', label: 'Matemática' },
+                                { value: 'Português', label: 'Português' },
+                                { value: 'Química', label: 'Química' },
+                                { value: 'Redação', label: 'Redação' }
                             ]} 
                         />
                         <Input name="cost" label="Custo da sua hora por aula" value={cost} onChange={e => setCost(e.target.value)} />
                     </fieldset>
                     <fieldset>
                         <legend>
-                            Horários disponíveis
-                            <button type="button" onClick={addNewScheduleItem}>+ Novo horário</button>
+                            <div>
+                                <span>Horários disponíveis</span>
+                                <button type="button" onClick={addNewScheduleItem}>+ Novo horário</button>
+                            </div>
                         </legend>
                         {scheduleItems.map((item, i) => {
                             return (
@@ -123,7 +126,7 @@ export default () => {
                             Importante! <br />
                             Preencha todos os dados.
                         </p>
-                        <button type="submit">Salvar cadastro</button>
+                        <Button text="Salvar cadastro" />
                     </footer>
                 </form>
             </main>

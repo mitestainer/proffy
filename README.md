@@ -33,5 +33,5 @@ As seguintes alterações não fazem parte do escopo do evento e estão prevista
 
 ### DB
 
-- [x] Criar rota POST para professores
+- [x] Criar rota PUT para professores
 - [x] Criar rota DELETE para professores

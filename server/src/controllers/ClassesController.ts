@@ -17,10 +17,9 @@ export default class {
         const weekday = filters.weekday as string
 
         if (!filters.subject || !filters.weekday || !filters.time) {
-            // return res.status(400).json({"error": "Missing filters to search classes"})
             const classesList = await db('users')
-                .select('*')
-                // .join('classes', )
+            .join('classes', 'users.id', 'classes.user_id')
+            .select('*')
             return res.status(200).json(classesList)
         }
 

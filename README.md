@@ -6,6 +6,10 @@ __Proffy__ - Projeto code-along da segunda edição da [Next Level Week 2](https
 
 Para visualizar o projeto, execute o comando `npm start` dentro de cada pasta.
 
+A premissa é manter o padrão inicial - uma plataforma para se conectar com professores de diversas áreas - e adicionar novas features com o passar do tempo.
+
+__Ideias de melhorias são bem-vindas!__ :grin:
+
 ## Alterações pontuais
 
 As seguintes alterações não fazem parte do escopo do evento e estão previstas ou já foram feitas:

@@ -5,6 +5,7 @@ import TeacherItem, {Teacher} from '../../components/TeacherItem'
 import Input from '../../components/Input'
 import Select from '../../components/Select'
 import Button from '../../components/Button'
+import Loading from '../../components/Loading'
 
 import api from '../../services/api'
 
@@ -13,6 +14,8 @@ import magnifierIcon from '../../assets/images/icons/magnifier.svg'
 import './styles.css'
 
 export default () => {
+    const [isLoading, setIsLoading] = useState(true)
+
     const [subject, setSubject] = useState('')
     const [weekday, setWeekday] = useState('')
     const [time, setTime] = useState('')
@@ -26,7 +29,12 @@ export default () => {
         console.log(res.data)
     }
 
-    useEffect(() => { api.get('classes').then(res => setTeachers(res.data)) }, [])
+    useEffect(() => { 
+        api.get('classes').then(res => {
+            setTeachers(res.data)
+            setIsLoading(false)
+        }) 
+    }, [])
 
     return (
         <div id="page-teacher-list" className="container">
@@ -74,7 +82,7 @@ export default () => {
             </PageHeader>
 
             <main>
-                {teachers.map((teacher: Teacher) => <TeacherItem key={teacher.id} teacher={teacher} />)}
+                {isLoading ? <Loading /> : teachers.map((teacher: Teacher) => <TeacherItem key={teacher.id} teacher={teacher} />)}
             </main>
         </div>
     )

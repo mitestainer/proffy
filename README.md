@@ -25,6 +25,8 @@ As seguintes alterações não fazem parte do escopo do evento e estão prevista
 
 ### Mobile
 
+- [ ] Adaptar as novas features da versão web para mobile
+
 ### DB
 
 - [x] Criar rota POST para professores

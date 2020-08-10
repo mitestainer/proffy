@@ -2,7 +2,7 @@
 
 ![](proffy.png)
 
-__Proffy__ - Projeto code-along da segunda edição da [Next Level Week 2](https://nextlevelweek.com/inscricao/2), de 3/8/2020 a 8/8/2020. O projeto conta com um webapp em React, um app mobile em React Native e um banco de dados SQL.
+__Proffy__ - Projeto code-along da segunda edição da [Next Level Week 2](https://nextlevelweek.com/inscricao/2), trilha Omnistack, de 3/8/2020 a 8/8/2020. O projeto conta com um webapp em React, um app mobile em React Native e um banco de dados SQL.
 
 Para visualizar o projeto, execute o comando `npm start` dentro de cada pasta.
 

@@ -59,7 +59,7 @@
 }
 
 
-#page-teacher-form main label {
+#page-teacher-form main label, #page-teacher-form main .select-label {
     color: var(--color-text-complement);
 }
 
@@ -100,6 +100,10 @@
         display: grid;
         grid-template-columns: 2fr 1fr 1fr;
         column-gap: 1.6rem;
+    }
+
+    #page-teacher-form main .schedule-item + .schedule-item {
+        margin-top: 1.6rem;
     }
 
     #page-teacher-form main .schedule-item .select-block + .input-block, #page-teacher-form main .schedule-item .input-block + .input-block {

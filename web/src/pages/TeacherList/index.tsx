@@ -26,7 +26,6 @@ export default () => {
         e.preventDefault()
         const res = await api.get('classes', { params: {subject, weekday, time} })
         setTeachers(res.data)
-        console.log(res.data)
     }
 
     useEffect(() => { 
@@ -41,10 +40,8 @@ export default () => {
             <PageHeader title="Estes são os proffys disponíveis.">
                 <form id="search-teachers" onSubmit={searchTeachers}>
                     <Select 
-                        name="subject" 
                         label="Matéria" 
-                        value={subject}
-                        onChange={e => setSubject(e.target.value)}
+                        handleClick={setSubject}
                         options={[
                             { value: 'Artes', label: 'Artes' },
                             { value: 'Biologia', label: 'Biologia' },
@@ -62,10 +59,8 @@ export default () => {
                         ]} 
                     />
                     <Select 
-                        name="weekday" 
                         label="Dia da semana" 
-                        value={weekday}
-                        onChange={e => setWeekday(e.target.value)}
+                        handleClick={setWeekday}
                         options={[
                             { value: '0', label: 'Domingo' },
                             { value: '1', label: 'Segunda-feira' },

@@ -67,10 +67,11 @@ export default () => {
                     <fieldset>
                         <legend>Sobre a aula</legend>
                         <Select 
-                            name="subject" 
+                            // name="subject" 
                             label="Matéria" 
-                            value={subject}
-                            onChange={e => setSubject(e.target.value)}
+                            // value={subject}
+                            // onChange={e => setSubject(e.target.value)}
+                            handleClick={setSubject}
                             options={[
                                 { value: 'Artes', label: 'Artes' },
                                 { value: 'Biologia', label: 'Biologia' },
@@ -100,10 +101,11 @@ export default () => {
                             return (
                                 <div key={item.weekday} className="schedule-item">
                                     <Select 
-                                        name="weekday" 
+                                        // name="weekday" 
                                         label="Dia da semana" 
-                                        value={item.weekday}
-                                        onChange={e => setScheduleItemValue(i, 'weekday', e.target.value)}
+                                        // value={item.weekday}
+                                        // onChange={e => setScheduleItemValue(i, 'weekday', e.target.value)}
+                                        handleClick={() => {}}
                                         options={[
                                             { value: '0', label: 'Domingo' },
                                             { value: '1', label: 'Segunda-feira' },

@@ -1,21 +1,43 @@
-import React, {SelectHTMLAttributes} from 'react'
+import React, {useState, SetStateAction} from 'react'
+import OutsideClickHandler from 'react-outside-click-handler'
+
+import selectArrow from '../../assets/images/icons/select-arrow.svg'
 
 import './styles.css'
 
-interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
+interface SelectProps {
     label: string
-    name: string
     options: Array<{value: string, label: string}>
+    handleClick: React.Dispatch<SetStateAction<string>>
 }
 
-const Select: React.FC<SelectProps> = ({label, name, options, ...rest}) => {
+const Select: React.FC<SelectProps> = ({label, options, handleClick}) => {
+    const [isDropdownOpen, setDropdownState] = useState(false)
+    const [selectedLabel, setSelectedLabel] = useState<string>('')
+
+    const toggle = () => setDropdownState(!isDropdownOpen)
+
+    const handleSelectedValue = (value: string, label: string) => {
+        handleClick(value)
+        setSelectedLabel(label)
+    }
+
     return (
         <div className="input-block select-block">
-            <label htmlFor={name}>{label}</label>
-            <select value="" id={name} {...rest}>
-                <option value="" disabled hidden>Selecione uma opção</option>
-                {options.map(option => <option key={option.value} value={option.value}>{option.label}</option>)}
-            </select>
+            <span className="select-label">{label}</span>
+            <OutsideClickHandler onOutsideClick={() => setDropdownState(false)}>
+                <div className={`dropdown-selector${isDropdownOpen ? ' dropdown-open' : ''}`} onClick={toggle}>
+                    <span className={selectedLabel ? 'select-label-selected' : ''}>
+                        {!selectedLabel ? 'Selecione' : selectedLabel}
+                        <img src={selectArrow} alt="arrow" className={isDropdownOpen ? 'arrow-dropdown-open' : ''} />
+                    </span>
+                    {isDropdownOpen && <div className="dropdown-options">
+                        <ul>
+                        {options.map(option => <li key={option.value} onClick={() => handleSelectedValue(option.value, option.label)}>{option.label}</li>)}
+                        </ul>
+                    </div>}
+                </div>
+            </OutsideClickHandler>
         </div>
     )
 }

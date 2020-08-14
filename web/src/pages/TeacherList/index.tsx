@@ -2,7 +2,7 @@ import React, {useState, useEffect, FormEvent} from 'react'
 
 import PageHeader from '../../components/PageHeader'
 import TeacherItem, {Teacher} from '../../components/TeacherItem'
-import Input from '../../components/Input'
+import TimeInput from '../../components/TimeInput'
 import Select from '../../components/Select'
 import Button from '../../components/Button'
 import Loading from '../../components/Loading'
@@ -71,7 +71,7 @@ export default () => {
                             { value: '6', label: 'Sábado' }
                         ]} 
                     />
-                    <Input type="time" name="time" label="Hora" value={time} onChange={e => setTime(e.target.value)} />
+                    <TimeInput label="Hora" onChange={e => setTime(e.target.value)} />
                     <Button image={magnifierIcon} text="Buscar" />
                 </form>
             </PageHeader>

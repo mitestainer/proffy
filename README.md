@@ -16,7 +16,7 @@ As seguintes alterações não fazem parte do escopo do evento e estão prevista
 
 ### Web
 
-- [ ] Altaração do input de data
+- [x] Altaração do input de ~~data~~ horário
 - [x] Alteração do input de seleção
 - [x] Correção de bug no textarea
 - [x] Alterar o botão de busca da página de professores
@@ -26,7 +26,9 @@ As seguintes alterações não fazem parte do escopo do evento e estão prevista
 - [x] Criar component de 'Carregando...'
 - [ ] Criar área logada para professores
 - [ ] Criar área logada para alunos
-- [ ] Alterar a caixa de inclusão de horários disponíveis
+- [x] Alterar a caixa de inclusão de horários disponíveis
+- [ ] Implementar SASS para facilitar a manutenção do CSS
+- [x] Alterar input de número de telefone
 
 ### Mobile
 

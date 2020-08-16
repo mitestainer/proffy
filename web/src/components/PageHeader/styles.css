@@ -30,6 +30,7 @@
     width: 25rem;
     position: relative;
     margin: 3.2rem;
+    padding-bottom: 4rem;
 }
 
 .page-header .header-content strong {
@@ -40,12 +41,19 @@
     color: var(--color-title-in-primary);
 }
 
-.page-header .header-content p {
-    max-width: 30rem;
+.page-header .header-content .header-inner p {
     font-size: 1.4rem;
     line-height: 1.9rem;
     color: var(--color-text-in-primary);
-    /* margin: 2.4rem 0 6.4rem; */
+}
+
+.page-header .header-content .header-inner > p {
+    max-width: 30rem;
+    margin-top: 2.4rem;
+}
+
+.page-header .header-content .header-inner .icon-area {
+    display: none;
 }
 
 @media (min-width: 700px) {

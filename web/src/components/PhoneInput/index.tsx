@@ -16,7 +16,7 @@ const Input: React.FC<InputProps> = ({label, name, ...rest}) => {
     return (
         <div className="input-block date-input">
             <span className="date-label">{label}</span>
-            <Cleave options={options} placeholder={'(__) _____-____'} {...rest} />
+            <Cleave options={options} {...rest} />
         </div>
     )
 }

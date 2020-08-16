@@ -1,0 +1,11 @@
+.date-input .date-label {
+    font-size: 1.4rem;
+    color: var(--color-text-complement);
+}
+
+.date-input input::placeholder {
+    font-weight: 400;
+    font-size: 1.6rem;
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-dropdown-text);
+}

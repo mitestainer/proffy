@@ -10,7 +10,7 @@ import purpleHeartIcon from '../../assets/images/icons/purple-heart.svg'
 
 import api from '../../services/api'
 
-import './styles.css'
+import './styles.scss'
 
 export default () => {
     const [totalConnections, setTotalConnections] = useState(0)

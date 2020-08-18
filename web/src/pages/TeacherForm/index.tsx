@@ -13,7 +13,7 @@ import warningIcon from '../../assets/images/icons/warning.svg'
 
 import api from '../../services/api'
 
-import './styles.css'
+import './styles.scss'
 
 export default () => {
     const history = useHistory()

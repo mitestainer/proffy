@@ -1,0 +1,243 @@
+#page-teacher-form {
+    width: 100vw;
+    height: 100vh;
+    
+    .page-header .header-content {
+        margin-bottom: 6.4rem;
+        width: 25rem;
+    }
+    
+    main {
+        background-color: var(--color-box-base);
+        width: 90%;
+        max-width: 74rem;
+        border-radius: 0.8rem;
+        margin: -4.2rem auto 3.2rem;
+        padding-top: 3.2rem;
+        overflow: hidden;
+        
+        fieldset {
+            border: 0;
+            padding: 0 2.4rem;
+            
+            & + fieldset {
+                margin-top: 4rem;
+            }
+            
+            legend {
+                font: 700 2rem 'Archivo', sans-serif;
+                color: var(--color-text-title);
+                margin-bottom: 2.4rem;
+                width: 100%;
+                padding-bottom: 0.8rem;
+                border-bottom: 1px solid var(--color-line-in-white);
+                
+                div {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    
+                    button {
+                        background: none;
+                        border: 0;
+                        color: var(--color-primary);
+                        font: 700 1.4rem 'Archivo', sans-serif;
+                        cursor: pointer;
+                        transition: color .2s;
+                        
+                        &:hover {
+                            color:var(--color-primary-dark);
+                        }
+                    }
+                }
+            }
+        }
+        
+        .schedule-item {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 1.6rem;
+            row-gap: 1.6rem;
+            
+            & + .schedule-item {
+                margin-top: 2.4rem;
+            }
+
+            .action-block {
+                margin-top: 0;
+            }
+            
+            .select-block {
+                grid-column: 1 / -1;
+            }
+            
+            .date-input {
+                margin-top: 0;
+                
+                &:nth-child(2) {
+                    grid-column: 1 / 2;
+                }
+                
+                &:nth-child(3) {
+                    grid-column: 2 / 3;
+                }
+            }
+
+            .delete-schedule-button {
+                display: flex;
+                align-items: center;
+                grid-column: 1 / -1;
+                
+                span {
+                    border-bottom: 1px solid var(--color-line-in-white);
+                    flex: 1;
+                }
+                
+                button {
+                    background-color: transparent;
+                    border: 0;
+                    margin: 0 2.4rem;
+                    font: 600 1.4rem 'Archivo', sans-serif;
+                    line-height: 2.4rem;
+                    color: var(--color-delete);
+                    cursor: pointer;
+                }
+            }
+        }
+        
+        footer {
+            padding: 2.4rem;
+            background-color: var(--color-box-footer);
+            border-top: 1px solid var(--color-line-in-white);
+            margin-top: 4rem;
+            
+            div.footer-wrapper {
+                display: flex;
+                align-items: center;
+                font-size: 1.2rem;
+                line-height: 2rem;
+                color: var(--color-text-complement);
+                
+                span {
+                    color: var(--color-primary);
+                }
+                
+                img {
+                    margin-right: 1.6rem;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 700px) {
+    #page-teacher-form {
+        max-width: 100%;
+    
+        .page-header .header-content {
+            margin-bottom: 0;
+            width: 100%;
+        }
+    
+        main {
+            padding-top: 4.2rem;
+        
+            fieldset {
+                padding: 0 6.4rem;
+            
+                div#your-data {
+                    display: grid;
+                    grid-template-rows: 1fr 1fr auto;
+                    grid-template-columns: repeat(6, 1fr);
+                    column-gap: 3.2rem;
+                    row-gap: 2.4rem;
+                
+                    legend {
+                        margin-bottom: 0;
+                    }
+                
+                    div {
+                        margin-top: 0;
+
+                        &:nth-child(1), &:nth-child(2) {
+                            grid-row: 1 / 2;
+                            grid-column: span 3;
+                        }
+                    
+                        &:nth-child(3) {
+                            grid-row: 2 / 3;
+                            grid-column: span 4;
+                        }
+                    
+                        &:nth-child(4) {
+                            grid-row: 2 / 3;
+                            grid-column: span 2;
+                        }
+                    
+                        &:nth-child(5) {
+                            grid-row: 3 / 4;
+                            grid-column: 1 / -1;
+                        }
+                    }
+                }
+
+                div#about-class {
+                    display: grid;
+                    grid-template-columns: 2fr 1fr;
+                    column-gap: 2.4rem;
+                    row-gap: 3.2rem;
+                
+                    legend {
+                        margin-bottom: 0;
+                    }
+                
+                    & > div {
+                        margin-top: 0;
+                    }
+                }
+            }
+        
+            .schedule-item {
+                grid-template-columns: 2fr 1fr 1fr;
+                grid-template-rows: 1fr auto;
+            
+                & + .schedule-item {
+                    margin-top: 1.6rem;
+                }
+            
+                & .select-block + .input-block, & .input-block + .input-block {
+                    margin-top: 0;
+                }
+            
+                & .select-block {
+                    grid-column: 1 / 2;
+                }
+            
+                & .date-input:nth-child(2) {
+                    grid-column: 2 / 3;
+                }
+                
+                & .date-input:nth-child(3) {
+                    grid-column: 3 / 4
+                }
+            }
+        
+            footer {
+                padding: 4rem 6.4rem;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            
+                p {
+                    justify-content: space-between;
+                }
+            
+                button {
+                    width: 20rem;
+                    margin-bottom: 0;
+                    order: 2;
+                }
+            }
+        }
+    }
+}

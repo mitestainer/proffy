@@ -3,7 +3,7 @@ import OutsideClickHandler from 'react-outside-click-handler'
 
 import selectArrow from '../../assets/images/icons/select-arrow.svg'
 
-import './styles.css'
+import './styles.scss'
 
 interface SelectProps {
     label: string
@@ -28,8 +28,8 @@ const Select: React.FC<SelectProps> = ({label, options, handleClick, index}) => 
     }
 
     return (
-        <div className="input-block select-block">
-            <span className="select-label">{label}</span>
+        <div className="action-block select-block">
+            <span className="input-label">{label}</span>
             <OutsideClickHandler onOutsideClick={() => setDropdownState(false)}>
                 <div className={`dropdown-selector${isDropdownOpen ? ' dropdown-open' : ''}`} onClick={toggle}>
                     <span className={selectedLabel ? 'select-label-selected' : ''}>

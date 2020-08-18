@@ -1,0 +1,36 @@
+#loading-content {
+    display: flex;
+    justify-content: center;
+    margin-top: 8rem;
+    
+    span {
+        height: 2.4rem;
+        width: 2.4rem;
+        display: block;
+        background-color: var(--color-secondary);
+        border-radius: 1.2rem;
+        animation: bounce 1s infinite ease-in-out;
+        
+        &:nth-child(1) {
+            animation-delay: .25s;
+        }
+        
+        &:nth-child(2) {
+            margin: 0 1.6rem;
+            animation-delay: .5s;
+        }
+        
+        &:nth-child(3) {
+            animation-delay: .75s;
+        }
+    }
+}
+
+@keyframes bounce {
+    0%, 40%, 100% {
+        transform: translateY(0);
+    }
+    20% {
+        transform: translateY(-10px);
+    }
+}

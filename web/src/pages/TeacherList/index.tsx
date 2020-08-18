@@ -11,7 +11,7 @@ import api from '../../services/api'
 
 import magnifierIcon from '../../assets/images/icons/magnifier.svg'
 
-import './styles.css'
+import './styles.scss'
 
 export default () => {
     const [isLoading, setIsLoading] = useState(true)

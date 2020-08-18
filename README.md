@@ -27,7 +27,7 @@ As seguintes alterações não fazem parte do escopo do evento e estão prevista
 - [ ] Criar área logada para professores
 - [ ] Criar área logada para alunos
 - [x] Alterar a caixa de inclusão de horários disponíveis
-- [ ] Implementar SASS para facilitar a manutenção do CSS
+- [x] Implementar SASS para facilitar a manutenção do CSS
 - [x] Alterar input de número de telefone
 
 ### Mobile

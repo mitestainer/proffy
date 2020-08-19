@@ -64,7 +64,6 @@ export default () => {
                 description="O primeiro passo é preencher esse formulário de inscrição"
                 iconImg="rocket"
                 iconText="Prepare-se! Vai&nbsp;ser&nbsp;o&nbsp;máximo."
-
             />
             <main>
                 <form onSubmit={handleCreateClass}>

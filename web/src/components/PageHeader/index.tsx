@@ -23,13 +23,15 @@ const PageHeader: React.FC<PageHeaderProps> = props => {
                 <img src={logoImage} alt="Proffy"/>
             </div>
             <div className="header-content">
-                <strong>{props.title}</strong>
-                <div className="header-inner">
-                    {props.description && <p>{props.description}</p>}
-                    {props.iconImg && <div className="icon-area">
-                        <img src={require(`../../assets/images/icons/${props.iconImg}.svg`)} alt={props.iconImg} />
-                        <p>{props.iconText}</p>
-                    </div>}
+                <div className="header-top">
+                    <strong>{props.title}</strong>
+                    <div className="header-inner">
+                        {props.description && <p>{props.description}</p>}
+                        {props.iconImg && <div className="icon-area">
+                            <img src={require(`../../assets/images/icons/${props.iconImg}.svg`)} alt={props.iconImg} />
+                            <p>{props.iconText}</p>
+                        </div>}
+                    </div>
                 </div>
                 {props.children}
             </div>

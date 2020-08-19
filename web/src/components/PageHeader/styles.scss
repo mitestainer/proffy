@@ -30,30 +30,31 @@
         position: relative;
         margin: 3.2rem;
         padding-bottom: 4rem;
-        
-        strong {
-            font-size: 2.4rem;
-            font-weight: 700;
-            font-family: 'Archivo', sans-serif;
-            line-height: 2.9rem;
-            color: var(--color-title-in-primary);
-        }
 
-        .header-inner {
-            
-            p {
-                font-size: 1.4rem;
-                line-height: 1.9rem;
-                color: var(--color-text-in-primary);
+        .header-top {
+            display: flex;
+            width: 100%;
+
+            strong {
+                font-size: 2.4rem;
+                font-weight: 700;
+                font-family: 'Archivo', sans-serif;
+                line-height: 2.9rem;
+                color: var(--color-title-in-primary);
+                flex-basis: 45%;
             }
-            
-            & > p {
-                max-width: 30rem;
-                margin-top: 2.4rem;
-            }
-            
-            .icon-area {
-                display: none;
+    
+            .header-inner {
+                
+                p {
+                    font-size: 1.4rem;
+                    line-height: 1.9rem;
+                    color: var(--color-text-in-primary);
+                }
+                
+                & > p {
+                    max-width: 30rem;
+                }
             }
         }
     }
@@ -61,7 +62,7 @@
 
 @media (min-width: 700px) {
     .page-header {
-        height: 340px;
+        min-height: 310px;
 
         .top-bar-container {
             max-width: 1100px;
@@ -71,42 +72,23 @@
             flex: 1;
             width: 100%;
             max-width: 740px;
-            margin: 0 auto;
+            margin: 0 auto 4.2rem;
             padding-bottom: 4.2rem;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: flex-start;
-    
-            strong {
-                max-width: 350px;
+
+            .header-top {
+
+                strong {
+                    max-width: 350px;
+                }
             }
     
             .header-inner {
                 display: flex;
                 width: 100%;
-                justify-content: space-between;
-    
-                & > * {
-                    margin-top: 2.4rem;
-                }
-        
-                .icon-area {
-                    max-width: 16rem;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-            
-                    img {
-                        width: 3.2rem;
-                        height: 3.2rem;
-                        margin-right: 2.4rem;
-                    }
-            
-                    p {
-                        font-size: 1.2rem;
-                    }
-                }
+                justify-content: flex-end;
             }
         }
     }

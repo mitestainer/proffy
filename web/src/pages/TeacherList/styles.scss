@@ -1,17 +1,81 @@
 #page-teacher-list {
     width: 100vw;
     height: 100vh;
+
+    .header-top {
+        display: flex;
+        justify-content: space-between;
+
+        .icon-area {
+            display: flex;
+    
+            img {
+                width: 1.8rem;
+                height: 1.8rem;
+                margin-right: .8rem;
+            }
+    
+            p {
+                font-size: 1.2rem;
+                white-space: nowrap;
+            }
+        }
+    }
+
+    #toggle-search {
+        margin-top: 3.2rem;
+        border-bottom: 1px solid var(--color-primary-lighter);
+        height: 5.6rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+
+        span {
+            color: var(--color-text-in-primary);
+        }
+
+        img:nth-last-child(1) {
+            transition: transform .25s;
+        }
+    }
     
     #search-teachers {
-        margin-top: 3.2rem;
+        margin-top: 1.6rem;
+        height: 256px;
+        transition: height .75s;
         
-        .input-label {
-            color: var(--color-text-in-primary);
+        &.visible {
+            overflow: visible;
+        }
+        
+        &.hidden {
+            overflow: hidden;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            column-gap: .8rem;
+
+            .action-block:first-child {
+                grid-column: 1 / -1;
+            }
+            
+            .input-label {
+                color: var(--color-text-in-primary);
+            }
+
+            .action-button {
+                margin-top: 2rem;
+                grid-column: 1 / -1;
+            }
         }
     }
     
     main {
-        margin: 3.2rem auto;
+        margin: -6.4rem auto 3.2rem;
         width: 90%;
     }
 }
@@ -19,28 +83,52 @@
 @media (min-width: 700px) {
     #page-teacher-list {
         max-width: 100%;
-    
-        #search-teachers {
-            display: grid;
-            grid-template-columns: 3fr 3fr 2fr 1fr;
-            column-gap: 1.6rem;
-            position: absolute;
-            bottom: -28px;
-            width: 100%;
-        
-            & .action-block + .action-block {
-                margin-top: 0;
-            }
 
-            & .action-button {
-                align-self: flex-end;
+        .header-top .icon-area {
+            max-width: 16rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+    
+            img {
+                width: 3.2rem;
+                height: 3.2rem;
+                margin-right: 1.6rem;
             }
         }
+
+        #toggle-search {
+            width: 100%;
+        }
+    
+        #search-teachers {
+            height: 90px;
+
+            form {
+                display: grid;
+                grid-template-columns: 3fr 3fr 2fr 1fr;
+                column-gap: 1.6rem;;
+                width: 100%;
+                margin-top: 0;
+            
+                .action-block + .action-block {
+                    margin-top: 0;
+                }
+    
+                .action-block:first-child {
+                    grid-column: unset;
+                }
+    
+                .action-button {
+                    align-self: flex-end;
+                    margin-top: 0;
+                    grid-column: unset;
+                }
+            }
+        } 
     
         main {
-            padding: 3.2rem 0;
             max-width: 740px;
-            margin: 0 auto;
         }
     }
 }

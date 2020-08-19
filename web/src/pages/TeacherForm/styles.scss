@@ -5,6 +5,18 @@
     .page-header .header-content {
         margin-bottom: 6.4rem;
         width: 25rem;
+
+        .header-top {
+            flex-direction: column;
+
+            .header-inner {
+                margin-top: 2.4rem;
+    
+                .icon-area {
+                    display: none;
+                }
+            }
+        }
     }
     
     main {
@@ -137,6 +149,25 @@
         .page-header .header-content {
             margin-bottom: 0;
             width: 100%;
+
+            .header-top .header-inner {
+                justify-content: space-between;
+    
+                .icon-area {
+                    display: flex;
+
+                    img {
+                        width: 3.2rem;
+                        height: 3.2rem;
+                        margin-right: 2.4rem;
+                    }
+
+                    & > p {
+                        width: 10.5rem;
+                        font-size: 1.2rem;
+                    }
+                }
+            }
         }
     
         main {

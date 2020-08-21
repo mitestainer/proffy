@@ -17,6 +17,11 @@
         background-color: var(--color-secondary-dark);
     }
 
+    &:disabled {
+        background-color: var(--color-button-disabled);
+        color: var(--color-text-complement);
+    }
+
     img {
         height: 2.4rem;
         transform: rotateY(180deg);

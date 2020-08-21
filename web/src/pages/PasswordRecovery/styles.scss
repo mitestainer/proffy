@@ -1,0 +1,124 @@
+#page-password-recovery {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    
+    #password-recovery-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex: 1;
+        padding: 0 3.2rem;
+        position: relative;
+
+        .back-arrow {
+            position: absolute;
+            top: 2rem;
+        }
+
+        h1 {
+            color: var(--color-text-title);
+            font-size: 3.2rem;
+            line-height: 4.6rem;
+        }
+
+        p {
+            color: var(--color-text-base);
+            font-size: 1.4rem;
+            width: 20rem;
+            margin-top: 2rem;
+        }
+
+        form {
+            margin-top: 4rem;
+    
+            .action-block + .action-block {
+                margin-top: 0;
+            }
+    
+            .input-block {
+                input {
+                    margin-top: 0;
+                }
+    
+                &:focus-within::after {
+                    width: 2px;
+                    height: 2px;
+                    height: calc(100% - 2.8rem);
+                    content: '';
+                    background-color: var(--color-primary-light);
+                    position: absolute;
+                    bottom: 1.4rem;
+                    top: 1.4rem;
+                    left: 0;
+                }
+            }
+    
+            & > :nth-child(1) input {
+                border-bottom-right-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+            
+            & > :nth-child(2) input, & > :nth-child(3) input {
+                border-bottom-right-radius: 0;
+                border-bottom-left-radius: 0;
+                border-top-right-radius: 0;
+                border-top-left-radius: 0;
+                border-top: 0;
+            }
+    
+            & > :nth-child(4) input {
+                border-top-right-radius: 0;
+                border-top-left-radius: 0;
+                border-top: 0;
+            }
+    
+            .action-button {
+                margin-top: 4rem;
+            }
+        }
+    }
+
+    #password-recovery-under {
+        display: none;
+    }
+}
+
+@media (min-width: 700px) {
+    #page-password-recovery {
+        flex-direction: row;
+
+        #password-recovery-form {
+            display: flex;
+            justify-content: center;
+            flex: 1 0 50%;
+            padding: 0 16rem;
+
+            h1 {
+                font-size: 3.6rem;
+            }
+
+            p {
+                font-size: 1.6rem;
+                width: 100%;
+            }
+        }
+
+        #password-recovery-under {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1 0 50%;
+            background-color: var(--color-primary);
+            background-image: url('../../assets/images/login-background-mobile.svg');
+            background-image: url('../../assets/images/login-background.svg');
+            background-size: auto 80%;
+            background-repeat: no-repeat;
+            background-position: center center;
+    
+            img {
+                width: 40%;
+            }
+        }
+    }
+}

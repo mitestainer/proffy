@@ -1,6 +1,6 @@
 import React, {useState, FormEvent} from 'react'
-import {useHistory} from 'react-router-dom'
 
+import Success from '../../components/Success'
 import PageHeader from '../../components/PageHeader'
 import Input from '../../components/Input'
 import PhoneInput from '../../components/PhoneInput'
@@ -16,7 +16,7 @@ import api from '../../services/api'
 import './styles.scss'
 
 export default () => {
-    const history = useHistory()
+    const [succeeded, setSuccess] = useState(false)
 
     const [name, setName] = useState('')
     const [surname, setSurname] = useState('')
@@ -51,13 +51,18 @@ export default () => {
             schedule: scheduleItems
         })
         .then(() => {
-            alert('Cadastro realizado com sucesso!')
-            history.push('/')
+            setSuccess(true)
         })
         .catch(() => alert('Erro no cadastro'))
     }
 
     return (
+        succeeded ? 
+        <Success 
+            title="Cadastro salvo!" 
+            text="Tudo certo, seu cadastro está na nossa lista de professores. Agora é só ficar de olho no seu WhatsApp." 
+            buttonText="Acessar lista"
+        /> : 
         <div id="page-teacher-form" className="container">
             <PageHeader 
                 title="Que incrível que você quer dar aulas." 

@@ -1,10 +1,10 @@
 import React, { useState, FormEvent } from 'react'
 import { Link } from 'react-router-dom'
 
-
 import Input from '../../components/Input'
 import Password from '../../components/Password'
 import Button from '../../components/Button'
+import Success from '../../components/Success'
 
 import backIcon from '../../assets/images/icons/back-darker.svg'
 import Logo from '../../assets/images/logo-login.svg'
@@ -17,14 +17,23 @@ export default () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
+    const [succeeded, setSuccess] = useState(false)
+
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault()
         console.log({
             firstName, lastName, email, password
         })
+        setSuccess(true)
     }
 
     return (
+        succeeded ? 
+        <Success 
+            title="Cadastro concluído" 
+            text="Agora você faz parte da plataforma da Proffy. Tenha uma ótima experiência." 
+            buttonText="Fazer login"
+        /> : 
         <div id="page-signup">
             <div id="signup-form">
                 <Link to="/login">

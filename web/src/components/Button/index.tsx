@@ -6,11 +6,12 @@ interface ButtonProps {
     text: string,
     image?: any,
     disabled?: boolean
+    onClick?: any
 }
 
-const Button: React.FC<ButtonProps> = ({text, image, disabled}) => {
+const Button: React.FC<ButtonProps> = ({text, image, disabled, onClick}) => {
     return (
-        <button type="submit" className="action-button" disabled={disabled}>
+        <button type="submit" className="action-button" disabled={disabled} onClick={onClick}>
             {!image ? text : <img src={image} alt={text} />}
         </button>
     )

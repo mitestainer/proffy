@@ -20,6 +20,7 @@
     &:disabled {
         background-color: var(--color-button-disabled);
         color: var(--color-text-complement);
+        cursor: not-allowed;
     }
 
     img {

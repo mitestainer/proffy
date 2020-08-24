@@ -1,0 +1,90 @@
+#success-screen {
+    padding: 8rem 4.2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-primary);
+    
+    #inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        flex: 1;
+        background-image: url('../../assets/images/success-background-mobile.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        
+        div {
+            // flex: 1;
+            // margin-bottom: 5.4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+    
+            img {
+                width: 8rem;
+                height: 8rem;
+                margin-bottom: 2.4rem;
+            }
+    
+            h1 {
+                font: 700 3.2rem 'Archivo', sans-serif;
+                line-height: 3.7rem;
+                text-align: center;
+                color: #fff;
+                margin-bottom: 1.6rem;
+            }
+    
+            p {
+                font-size: 1.4rem;
+                line-height: 2.4rem;
+                text-align: center;
+                color: var(--color-text-in-primary);
+            }
+        }
+    }
+}
+
+@media (min-width: 700px) {
+    #success-screen {
+        padding: 8rem 10rem;
+        justify-content: space-around;
+        
+        #inner {
+            width: 100%;
+            // padding: 6rem 0;
+            background-image: url('../../assets/images/success-background.svg');
+            
+            div {
+                // background-size: 75%;
+                // margin-bottom: 0;
+                img {
+                    width: 10rem;
+                    height: 10rem;
+                    margin-bottom: 4rem;
+                }
+
+                h1 {
+                    font-size: 5.2rem;
+                    line-height: 4.2rem;
+                    margin-bottom: 2.4rem;
+                }
+
+                p {
+                    font-size: 1.6rem;
+                    line-height: 2.6rem;
+                    width: 472px;
+                }
+            }
+
+            .action-button {
+                width: 188px;
+            }
+        }
+    }
+}

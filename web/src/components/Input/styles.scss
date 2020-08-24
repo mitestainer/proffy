@@ -12,6 +12,14 @@
         padding: 0 1.6rem;
         font-size: 1.6rem;
         font-family: 'Archivo', sans-serif;
+
+        &::placeholder {
+            color: var(--color-text-complement);
+            font-size: 1.4rem;
+            font-weight: normal;
+            font-family: 'Poppins', sans-serif;
+            opacity: 1;
+        }
     }
     
     &:focus-within::after {

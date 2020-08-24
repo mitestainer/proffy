@@ -24,6 +24,7 @@
     --color-dropdown-hover: #EBEBF5;
     --color-dropdown-text-hover: #6A6180;
     --color-delete: #E33D3D;
+    --color-button-disabled: #DCDCE6;
 }
 
 * {
@@ -67,12 +68,13 @@ body, input, button, textarea {
     margin-top: 1.4rem;
 }
 
+.App {
+    height: 100%;
+    width: 100%;
+}
+
 @media (min-width: 700px) {
     :root {
         font-size: 62.5%;
-    }
-
-    .App {
-        width: 100%;
     }
 }

@@ -25,6 +25,7 @@ As seguintes alterações não fazem parte do escopo do evento e estão prevista
 - [x] Fazer todos os professores dispoíveis aparecem quando não há filtragem ativa
 - [x] Criar component de 'Carregando...'
 - [x] Criar página de login
+- [x] Criar feature de login
 - [ ] Criar área logada para professores
 - [ ] Criar área logada para alunos
 - [x] Alterar a caixa de inclusão de horários disponíveis

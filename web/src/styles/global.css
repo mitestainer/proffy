@@ -39,6 +39,7 @@ html, body, #root {
 
 body {
     background-color: var(--color-background);
+    overflow-x: hidden;
 }
 
 #root {

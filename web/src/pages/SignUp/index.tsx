@@ -10,6 +10,7 @@ import backIcon from '../../assets/images/icons/back-darker.svg'
 import Logo from '../../assets/images/logo-login.svg'
 
 import './styles.scss'
+import api from '../../services/api'
 
 export default () => {
     const [firstName, setFirstName] = useState('')
@@ -21,10 +22,11 @@ export default () => {
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault()
-        console.log({
+        api.post('/signup', {
             firstName, lastName, email, password
         })
-        setSuccess(true)
+        .then(() => setSuccess(true))
+        .catch(err => console.error(err.message))
     }
 
     return (

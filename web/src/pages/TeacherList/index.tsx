@@ -28,16 +28,20 @@ export default () => {
         setTeachers(res.data)
     }
 
-    useEffect(() => { 
-        api.get('classes').then(res => {
-            setTeachers(res.data)
-            setIsLoading(false)
-        }) 
+    useEffect(() => {
+        try {
+            api.get('classes').then(res => {
+                setTeachers(res.data)
+                setIsLoading(false)
+            }) 
+        } catch (error) {
+            console.error(error.message)
+        } 
     }, [])
 
     return (
         <div id="page-teacher-list" className="container">
-            <PageHeader title="Estes são os proffys disponíveis.">
+            <PageHeader page="Estudar" title="Estes são os proffys disponíveis.">
                 <form id="search-teachers" onSubmit={searchTeachers}>
                     <Select 
                         label="Matéria" 

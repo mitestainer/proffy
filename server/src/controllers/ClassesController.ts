@@ -11,34 +11,38 @@ interface ScheduleItem {
 
 export default class {
     async index(req: Request, res: Response) {
-        const filters = req.query
-        const subject = filters.subject as string
-        const time = filters.time as string
-        const weekday = filters.weekday as string
-
-        if (!filters.subject || !filters.weekday || !filters.time) {
-            const classesList = await db('users')
-            .join('classes', 'users.id', 'classes.user_id')
-            .select('*')
-            return res.status(200).json(classesList)
+        try {
+            const filters = req.query
+            const subject = filters.subject as string
+            const time = filters.time as string
+            const weekday = filters.weekday as string
+    
+            if (!filters.subject || !filters.weekday || !filters.time) {
+                const classesList = await db('users')
+                .join('classes', 'users.id', 'classes.user_id')
+                .select('*')
+                return res.status(200).json(classesList)
+            }
+    
+            const timeInMinutes = convertHoursToMinutes(time)
+    
+            const classes = await db('classes')
+                .whereExists(function() {
+                    this.select('classes_schedule.*')
+                    .from('classes_schedule')
+                    .whereRaw('`classes_schedule`.`class_id` = `classes`.`id`')
+                    .whereRaw('`classes_schedule`.`weekday` = ??', [Number(weekday)])
+                    .whereRaw('`classes_schedule`.`from` <= ??',[timeInMinutes])
+                    .whereRaw('`classes_schedule`.`to` > ??',[timeInMinutes])
+                })
+                .where('classes.subject', '=', subject)
+                .join('users', 'classes.user_id', '=', 'users.id')
+                .select(['classes.*', 'users.*'])
+    
+            return res.json(classes)
+        } catch (error) {
+            return res.status(500).json({"error": "Server error"})
         }
-
-        const timeInMinutes = convertHoursToMinutes(time)
-
-        const classes = await db('classes')
-            .whereExists(function() {
-                this.select('classes_schedule.*')
-                .from('classes_schedule')
-                .whereRaw('`classes_schedule`.`class_id` = `classes`.`id`')
-                .whereRaw('`classes_schedule`.`weekday` = ??', [Number(weekday)])
-                .whereRaw('`classes_schedule`.`from` <= ??',[timeInMinutes])
-                .whereRaw('`classes_schedule`.`to` > ??',[timeInMinutes])
-            })
-            .where('classes.subject', '=', subject)
-            .join('users', 'classes.user_id', '=', 'users.id')
-            .select(['classes.*', 'users.*'])
-
-        return res.json(classes)
     }
 
     async create(req: Request, res: Response) {
